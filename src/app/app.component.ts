@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+// this code is after class on October 10, 2019
+
 export interface Todo {
   text: string;
   done: boolean;
