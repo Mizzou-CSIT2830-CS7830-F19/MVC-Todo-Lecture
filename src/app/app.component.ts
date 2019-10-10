@@ -21,7 +21,7 @@ export class AppComponent {
 
   addTodo(value) {
     if (value !== "") {
-      let dataObject: Todo = {
+      let dataObject = {
         text: value,
         done: false
       };
@@ -49,7 +49,7 @@ export class AppComponent {
   todoSubmit(value: any) {
     if (value !== "") {
       console.log(value);
-      let dataObject: Todo = {
+      let dataObject = {
         text: value,
         done: false
       };
@@ -58,42 +58,6 @@ export class AppComponent {
       localStorage.setItem("todos", JSON.stringify(this.todoArray));
     } else {
       alert("Field Required");
-    }
-  }
-
-  remaining() {
-    let count = 0;
-
-    for (let todo of this.todoArray) {
-      count += todo.done ? 0 : 1;
-    }
-
-    return count;
-  }
-
-  archive() {
-    let oldTodos = this.todoArray;
-
-    this.todoArray = [];
-
-    for (let todo of oldTodos) {
-      if (!todo.done) this.todoArray.push(todo);
-    }
-
-    localStorage.setItem("todos", JSON.stringify(this.todoArray));
-  }
-
-  refresh(checked) {
-    let tempTodos = JSON.parse(localStorage.getItem("todos"));
-
-    for (let todo of tempTodos) {
-      if (checked.text === todo.text) {
-        todo.done = !todo.done;
-
-        localStorage.setItem("todos", JSON.stringify(tempTodos));
-
-        this.todoArray = tempTodos;
-      }
     }
   }
 }
