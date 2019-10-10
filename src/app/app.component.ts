@@ -10,10 +10,24 @@ export class AppComponent {
 
   todoArray = [];
 
+  constructor() {
+    this.todoArray =
+      localStorage.getItem("todos") !== null
+        ? JSON.parse(localStorage.getItem("todos"))
+        : [];
+  }
+
   addTodo(value) {
     if (value !== "") {
-      this.todoArray.push(value);
+      let dataObject = {
+        text: value,
+        done: false
+      };
+
+      this.todoArray.push(dataObject);
       console.log(this.todoArray);
+
+      localStorage.setItem("todos", JSON.stringify(this.todoArray));
     } else {
       alert("Field required!");
     }
@@ -26,11 +40,20 @@ export class AppComponent {
         console.log("delete item");
       }
     }
+
+    localStorage.setItem("todos", JSON.stringify(this.todoArray));
   }
 
   todoSubmit(value: any) {
     if (value !== "") {
-      this.todoArray.push(value.todo);
+      console.log(value);
+      let dataObject = {
+        text: value,
+        done: false
+      };
+      this.todoArray.push(dataObject);
+
+      localStorage.setItem("todos", JSON.stringify(this.todoArray));
     } else {
       alert("Field Required");
     }

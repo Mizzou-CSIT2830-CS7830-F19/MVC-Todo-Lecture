@@ -1,5 +1,5 @@
 <div class="container">
-  <form #todoForm="ngForm" (ngSubmit)="todoSubmit(todoForm.value)">
+  <form #todoForm="ngForm" (ngSubmit)="todoSubmit(todo.value)">
     <div class="form-group">
       <h1 class="text-center text-primary">Todo App</h1>
       <div class="input-group-prepend">
@@ -12,7 +12,7 @@
     <div class="data">
       <ul class="list-unstyled">
         <li *ngFor="let todo of todoArray">
-          {{todo}}
+          {{todo.text}}
           <i class="material-icons" (click)="deleteItem(todo)">delete</i>
         </li>
       </ul>
