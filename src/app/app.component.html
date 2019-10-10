@@ -10,10 +10,19 @@
       </div>
     </div>
     <div class="data">
+
+      <span>{{ remaining() }} of {{ todoArray.length }} remaining</span>
+      [ <a href="" (click)="archive()">archive</a> ]
+
       <ul class="list-unstyled">
-        <li *ngFor="let todo of todoArray">
-          {{todo.text}}
-          <i class="material-icons" (click)="deleteItem(todo)">delete</i>
+        <!-- for myTodo in todoArray  -->
+        <!-- [@moveInLeft] -->
+        <li *ngFor="let myTodo of todoArray" class="done-{{myTodo.done}}">
+
+          <input type="checkbox" (click)="refresh(myTodo)" [(checked)]="myTodo.done">
+
+          {{myTodo.text}}
+          <i class="material-icons" (click)="deleteItem(myTodo)">delete</i>
         </li>
       </ul>
     </div>
