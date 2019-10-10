@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+// this code is before class on October 10, 2019
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
