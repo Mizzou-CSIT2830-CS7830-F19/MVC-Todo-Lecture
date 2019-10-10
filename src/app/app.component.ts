@@ -1,9 +1,6 @@
 import { Component } from "@angular/core";
 
-export interface Todo {
-  text: string;
-  done: boolean;
-}
+// this code is before class on October 10, 2019
 
 @Component({
   selector: "app-root",
